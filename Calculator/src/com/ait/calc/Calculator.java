@@ -137,8 +137,7 @@ public class Calculator {
 			Token t = Token.stringToToken(string);
 			if(string.equals("-"))
 			{
-				Token previousToken = tokens.get(tokens.size()-1);
-				if(tokens.size() == 1 || previousToken.getTokenType() == Token.TokenType.LEFTBRACE || previousToken.getTokenType() == Token.TokenType.OPERATOR)
+				if(tokens.size() ==  0|| tokens.get(tokens.size()-1).getTokenType() == Token.TokenType.LEFTBRACE || tokens.get(tokens.size()-1).getTokenType() == Token.TokenType.OPERATOR)
 				{
 					t.setSymbol('_');
 					t.setTokenType(TokenType.OPERATOR);
@@ -160,7 +159,7 @@ public class Calculator {
 		s = s.replace("^", " ^ ");
 		s = s.replace("(", " ( ");
 		s = s.replace(")", " ) ");
-		
+		s=s.trim();
 		return s.split("\\s+");
 	}
 
